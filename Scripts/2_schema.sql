@@ -2,48 +2,51 @@
  * Tabellen erzeugen
  */
 
-CREATE TABLE Abteilung (
-  AbtNr INTEGER  PRIMARY KEY,
-  Name VARCHAR(20)
+CREATE TABLE Gestell (
+  Id INTEGER,
+  Position Text NOT NULL UNIQUE,
+  Freie_Fläche INT NOT NULL
 );
 
-CREATE TABLE Angestellter (
-  PersNr INTEGER  PRIMARY KEY,
-  Name VARCHAR(20) NOT NULL,
-  Tel INTEGER ,
-  Salaer DECIMAL (7,2) NOT NULL,
-  Chef INTEGER ,
-  AbtNr INTEGER  NOT NULL,
-  Wohnort VARCHAR(20),
-  Eintrittsdatum DATE DEFAULT CURRENT_DATE,
-  Bonus DECIMAL (7,2) DEFAULT 0
+CREATE TABLE Produkt (
+  Id INTEGER,
+  Name TEXT NOT NULL,
+  Beschreibung TEXT
 );
 
-CREATE TABLE AbtLeitung (
-  AbtNr INTEGER,
-  AbtChef INTEGER  NOT NULL,
-  PRIMARY KEY(AbtNr),
-  UNIQUE(AbtChef)
+CREATE TABLE Artikel (
+	ArtikelNr INTEGER,
+	Preis NUMERIC NOT NULL,
+	Einlagerungsdatum DATETIME NOT NULL,
+	Grösse INTEGER NOT NULL,
+	ProduktId INTEGER,
+	GestellId INTEGER,
+	EinlagerungsmitarbeiterId INTEGER,
+	AuslagerungsmitarbeiterId INTEGER
 );
 
-CREATE TABLE Projekt (
-  ProjNr INTEGER PRIMARY KEY,
-  Bezeichnung char(20),
-  StartZeit DATE,
-  Dauer INTEGER ,
-  Aufwand INTEGER ,
-  ProjLeiter INTEGER 
+CREATE TABLE Person (
+	Id INTEGER,
+	Vorname TEXT NOT NULL,
+	Nachname TEXT NOT NULL,
+	Geburtsdatum DATE NOT NULL
 );
 
-CREATE TABLE ProjektZuteilung (
-  PersNr INTEGER  NOT NULL,
-  ProjNr INTEGER   NOT NULL,
-  ZeitAnteil INTEGER  NOT NULL,
-  StartZeit DATE,
-  Dauer INTEGER ,
-  PRIMARY KEY (PersNr, ProjNr)
+CREATE TABLE Kunde (
+  Kundennummer INTEGER,
+  PersonId INTEGER  NOT NULL
 );
 
+CREATE TABLE Mitarbeiter (
+  Mitarbeiternummer INTEGER,
+  PersonId INTEGER
+);
 
-CREATE Sequence S_Angestellter START WITH 2000 INCREMENT BY 10; 
+CREATE TABLE ProduktBestellung (
+  Id INTEGER,
+  Menge INTEGER NOT NULL,
+  BestellId INTEGER,
+  ProduktId INTEGER,
+  Dauer INTEGER
+);
 

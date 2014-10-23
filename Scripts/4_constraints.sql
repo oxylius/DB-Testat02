@@ -1,19 +1,24 @@
 /*
  * Fremdschluessel setzen
  */
- ALTER TABLE Angestellter 
- ADD CONSTRAINT fk_AngAng 
-    FOREIGN KEY (Chef) REFERENCES Angestellter (PersNr)
+ ALTER TABLE Gestell 
+ ADD CONSTRAINT pk_GestellID 
+    PRIMARY KEY (Id)
  ;
  
- ALTER TABLE Angestellter 
- ADD CONSTRAINT fk_AngAbt 
-    FOREIGN KEY (AbtNr) REFERENCES Abteilung (AbtNr)
+ ALTER TABLE Produkt 
+ ADD CONSTRAINT pk_ProduktId 
+    PRIMARY KEY (Id)
  ;
  
- ALTER TABLE AbtLeitung 
- ADD CONSTRAINT fk_AbtLAbt 
-    FOREIGN KEY (AbtNr) REFERENCES Abteilung (AbtNr)
+ ALTER TABLE Artikel 
+ ADD CONSTRAINT pk_ArtikelNr 
+    PRIMARY KEY (ArtikelNr),
+ ADD CONSTRAINT fk_ArtikelProduktID
+	FOREIGN KEY (ProduktId) REFERENCES Produkt(Id),
+ ADD CONSTRAINT fk_ArtikelGestellId
+	FOREIGN KEY (GestellId) REFERENCES Gestell(Id),
+	
     ON DELETE CASCADE
  ;
  

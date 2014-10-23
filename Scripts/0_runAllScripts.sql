@@ -4,9 +4,9 @@
 \echo
 
 SET client_min_messages = ERROR;
-\set user anguser 
-\set password '\'angproj\''
-\set database angproj
+\set user lageruser 
+\set password '\'lagerproj\''
+\set database lagerverwaltungssystem
 \set promptvar ''
 
 \prompt 'DROP USER [':user'] and DROP DATABASE [':database'] if existing (\\q or Ctrl-C to abort)?' promptvar
