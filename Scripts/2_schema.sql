@@ -4,14 +4,14 @@
 
 CREATE TABLE Gestell (
   Id INTEGER,
-  Position Text NOT NULL UNIQUE,
+  Position VARCHAR(20) NOT NULL UNIQUE,
   Freie_Fläche INT NOT NULL
 );
 
 CREATE TABLE Produkt (
   Id INTEGER,
-  Name TEXT NOT NULL,
-  Beschreibung TEXT
+  Name VARCHAR(30) NOT NULL,
+  Beschreibung VARCHAR(400)
 );
 
 CREATE TABLE Artikel (
@@ -27,14 +27,14 @@ CREATE TABLE Artikel (
 
 CREATE TABLE Person (
 	Id INTEGER,
-	Vorname TEXT NOT NULL,
-	Nachname TEXT NOT NULL,
+	Vorname VARCHAR(30) NOT NULL,
+	Nachname VARCHAR(30) NOT NULL,
 	Geburtsdatum DATE NOT NULL
 );
 
 CREATE TABLE Kunde (
   Kundennummer INTEGER,
-  PersonId INTEGER  NOT NULL
+  PersonId INTEGER NOT NULL
 );
 
 CREATE TABLE Mitarbeiter (
@@ -46,7 +46,6 @@ CREATE TABLE ProduktBestellung (
   Id INTEGER,
   Menge INTEGER NOT NULL,
   BestellId INTEGER,
-  ProduktId INTEGER,
-  Dauer INTEGER
+  ProduktId INTEGER
 );
 
