@@ -17,7 +17,7 @@ CREATE TABLE Produkt (
 CREATE TABLE Artikel (
 	ArtikelNr INTEGER,
 	Preis NUMERIC NOT NULL,
-	Einlagerungsdatum DATETIME NOT NULL,
+	Einlagerungsdatum TIMESTAMP NOT NULL,
 	Grösse INTEGER NOT NULL,
 	ProduktId INTEGER,
 	GestellId INTEGER,
@@ -44,7 +44,7 @@ CREATE TABLE Mitarbeiter (
 
 CREATE TABLE Bestellung (
 	BestellNummer INTEGER,
-	Datum DATETIME NOT NULL,
+	Datum TIMESTAMP NOT NULL,
 	KundenId INTEGER NOT NULL
 );
 
