@@ -1,46 +1,55 @@
-/*
- * Fremdschluessel setzen
- */
- ALTER TABLE Gestell 
- ADD CONSTRAINT pk_GestellID 
-    PRIMARY KEY (Id)
- ;
- 
- ALTER TABLE Produkt 
- ADD CONSTRAINT pk_ProduktId 
-    PRIMARY KEY (Id)
- ;
- 
- ALTER TABLE Artikel 
- ADD CONSTRAINT pk_ArtikelNr 
-    PRIMARY KEY (ArtikelNr),
- ADD CONSTRAINT fk_ArtikelProduktID
+ALTER TABLE Gestell 
+ADD CONSTRAINT pk_GestellID 
+	PRIMARY KEY (Id)
+;
+
+ALTER TABLE Produkt 
+ADD CONSTRAINT pk_ProduktId 
+	PRIMARY KEY (Id)
+;
+
+ALTER TABLE Artikel 
+ADD CONSTRAINT pk_ArtikelNr 
+	PRIMARY KEY (ArtikelNr),
+ADD CONSTRAINT fk_ArtikelProduktID
 	FOREIGN KEY (ProduktId) REFERENCES Produkt(Id),
- ADD CONSTRAINT fk_ArtikelGestellId
+ADD CONSTRAINT fk_ArtikelGestellId
 	FOREIGN KEY (GestellId) REFERENCES Gestell(Id),
-	
-    ON DELETE CASCADE
- ;
- 
- ALTER TABLE AbtLeitung 
- ADD CONSTRAINT fk_AbtLAng 
-    FOREIGN KEY (AbtChef) REFERENCES Angestellter(PersNr)
-    ON DELETE CASCADE
- ;
- 
- ALTER TABLE Projekt 
- ADD CONSTRAINT fk_ProjAng 
-    FOREIGN KEY (ProjLeiter) REFERENCES Angestellter(PersNr)
- ;
- 
- ALTER TABLE ProjektZuteilung 
- ADD CONSTRAINT fk_ProjzAng 
-    FOREIGN KEY (PersNr) REFERENCES Angestellter(PersNr)
-    ON DELETE CASCADE
- ;
- 
- ALTER TABLE ProjektZuteilung 
- ADD CONSTRAINT fk_ProjzProj 
-    FOREIGN KEY (ProjNr) REFERENCES Projekt(ProjNr)
-    ON DELETE CASCADE
+ADD CONSTRAINT fk_ArtikelEinlagerung
+	FOREIGN KEY (EinlagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer),
+ADD CONSTRAINT fk_ArtikelAuslagerung
+	FOREIGN KEY (AuslagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer)
+;
+
+ALTER TABLE Person 
+ADD CONSTRAINT pk_Person 
+	PRIMARY KEY (Id)
+;
+
+ALTER TABLE Kunde 
+ADD CONSTRAINT pk_Kunde
+	PRIMARY KEY (Kundennummer)
+;
+
+ALTER TABLE Mitarbeiter 
+ADD CONSTRAINT pk_Mitarbeiter 
+	PRIMARY KEY (Mitarbeiternummer),
+ADD CONSTRAINT fk_MitarbeiterPerson
+	FOREIGN KEY (PersonId) REFERENCES Person(Id)
+;
+
+ALTER TABLE Bestellung 
+ADD CONSTRAINT pk_Bestellung
+	PRIMARY KEY (Bestellnummer),
+ADD CONSTRAINT fk_BestellungKunde
+	FOREIGN KEY (KundenId) REFERENCES Kunde(Kundennummer)
+;
+
+ALTER TABLE ProduktBestellung
+ADD CONSTRAINT pk_ProduktBestellung
+	PRIMARY KEY (Id),
+ADD CONSTRAINT fk_ProduktBestellungBestellung
+	FOREIGN KEY (BestellId) REFERENCES Bestellung (Bestellnummer),
+ADD CONSTRAINT fk_ProduktbestellungProdukt
+	FOREIGN KEY (ProduktId) REFERENCES Produkt (Id)
 ;

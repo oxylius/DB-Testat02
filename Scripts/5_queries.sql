@@ -1,6 +1,6 @@
-select name, salaer from angestellter where salaer > 5000;
+SELECT k.Kundennummer p.Vorname, p.Nachname FROM Person p, Kunde k;
 
-select name, salaer from angestellter where wohnort = 'Luzern' AND (salaer < 5000 OR salaer > 8000);
+SELECT m.Mitarbeiternummer, p.Vorname, p.Nachname from Person p, Mitarbeiter m;
 
 Select name, tel from angestellter WHERE Tel is NOT NULL ORDER BY Name ASC;
 
