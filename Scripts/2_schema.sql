@@ -21,8 +21,8 @@ CREATE TABLE Artikel (
 	Grösse INTEGER NOT NULL,
 	ProduktId INTEGER,
 	GestellId INTEGER,
-	EinlagerungsmitarbeiterId INTEGER,
-	AuslagerungsmitarbeiterId INTEGER
+	EinlagerungsmitarbeiterId INTEGER NOT NULL,
+	AuslagerungsmitarbeiterId INTEGER NOT NULL
 );
 
 CREATE TABLE Person (
