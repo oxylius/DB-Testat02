@@ -31,14 +31,38 @@ SELECT p.Name, pb.Menge, b.Datum, pe.Vorname, pe.Nachname
 	WHERE pe.Vorname = 'Barack'
 ;
 
-/* TODO: QUERY MIT UNTERABFRAGE */
+/* QUERY MIT UNTERABFRAGE 
+	Die Abfrage zählt für jedes Produkt, wie oft es
+	bereits bestellt wurde. In der Unterabfrage wird der 
+	Produktname zur ProuktId gefunden
+*/
+SELECT pb.ProduktId, (
+	SELECT p.Name 
+		FROM Produkt p 
+		WHERE p.Id = pb.ProduktId
+	), SUM(pb.menge)
+	FROM ProduktBestellung pb
+	GROUP BY pb.ProduktId
+;
 
 /* GROUP BY 
-Anzahl Bestellungen pro Tag
+	Anzahl Bestellungen pro Tag
 */
 SELECT b.Datum, COUNT(b.Datum) AS "Anz. Bestellungen/Tag" 
 	FROM Bestellung b
 	GROUP BY b.Datum
 ;
 
-/* TODO: Query mit ANY oder IN oder NOT IN */
+/* Query mit ANY oder IN oder NOT IN 
+	Sämtliche Gestelle im Gang A, also Gestell A1-A3,
+	müssen wegen einem Umbau gezügelt werden. Die Abfrage
+	Liefert die zu verschiebenden Artikel
+*/
+SELECT g.Position, a.ArtikelNr, p.Name, a.EinlagerungsDatum 
+	FROM Gestell g LEFT JOIN Artikel a 
+		ON g.Id = a.GestellId
+	INNER JOIN Produkt p
+		ON p.Id = a.ProduktId
+	WHERE g.Position IN('A1', 'A2', 'A3')
+;
+	
