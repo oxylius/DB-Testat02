@@ -1,3 +1,7 @@
+/* Autoren:	Lukas Steiger	lsteiger@hsr.ch
+ *			Noah Hendrikx	nhendrik@hsr.ch
+ */
+
 /*
  * Tabellen erzeugen
  */
@@ -39,7 +43,7 @@ CREATE TABLE Kunde (
 
 CREATE TABLE Mitarbeiter (
 	Mitarbeiternummer INTEGER,
-	PersonId INTEGER
+	PersonId INTEGER NOT NULL
 );
 
 CREATE TABLE Bestellung (
@@ -51,6 +55,6 @@ CREATE TABLE Bestellung (
 CREATE TABLE ProduktBestellung (
 	Id INTEGER,
 	Menge INTEGER NOT NULL,
-	BestellId INTEGER,
-	ProduktId INTEGER
+	BestellId INTEGER NOT NULL,
+	ProduktId INTEGER NOT NULL
 ); 

@@ -1,3 +1,7 @@
+/* Autoren:	Lukas Steiger	lsteiger@hsr.ch
+ *			Noah Hendrikx	nhendrikx@hsr.ch
+ */
+ 
 INSERT INTO Gestell VALUES
 	(1, 'A1', 14),
 	(2, 'A2', 45),

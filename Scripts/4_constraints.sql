@@ -1,3 +1,7 @@
+/* Autoren:	Lukas Steiger	lsteiger@hsr.ch
+ *			Noah Hendrikx	nhendrikx@hsr.ch
+ */
+ 
 ALTER TABLE Gestell 
 ADD CONSTRAINT pk_GestellID 
 	PRIMARY KEY (Id)

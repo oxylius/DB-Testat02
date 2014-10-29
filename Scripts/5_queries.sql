@@ -1,3 +1,7 @@
+/* Autoren:	Lukas Steiger	lsteiger@hsr.ch
+ *			Noah Hendrikx	nhendrik@hsr.ch
+ */
+
 /* 	DISTINCT:
 	Findet heraus, an welcher Position im 
 	Lager Äpfel gelagert werden. Es kann sein,
