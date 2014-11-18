@@ -14,26 +14,26 @@ INSERT INTO Gestell VALUES
 ;
 
 INSERT INTO Produkt VALUES
-	(1, 'Apfel', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern'),
-	(2, 'Birne', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern'),
-	(3, 'Erdbeere', 'Die süsse Verführung'),
-	(4, 'Ananas', 'Exotische Frucht, produziert und geernet von Armen Menschen'),
-	(5, 'Banane', 'Exotische Frucht, produziert und geernet von Armen Menschen'),
-	(6, 'Mango', 'Exotische Frucht, produziert und geernet von Armen Menschen'),
-	(7, 'Kirsche', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern')
+	(1, 'Apfel', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true),
+	(2, 'Birne', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true),
+	(3, 'Erdbeere', 'Die süsse Verführung', 'Schweiz', true),
+	(4, 'Ananas', 'Exotische Frucht, produziert und geernet von Armen Menschen', 'Spanien', false),
+	(5, 'Banane', 'Exotische Frucht, produziert und geernet von Armen Menschen', 'Afrika', false),
+	(6, 'Mango', 'Exotische Frucht, produziert und geernet von Armen Menschen', 'Afrika', false),
+	(7, 'Kirsche', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true)
 ;
 
 INSERT INTO Person VALUES
-	(1, 'Hansi', 'Hinterseher', '1.1.1900'),
-	(2, 'Helene', 'Fischer', '22.3.1991'),
-	(3, 'Vujo', 'Gavric', '12.1.2005'),
-	(4, 'Mike', 'Shiva', '13.12.1950'),
-	(5, 'Monika', 'Fasnacht', '1.2.1939'),
-	(6, 'DJ', 'Bobo', '12.8.1977'),
-	(7, 'Melanie', 'Winniger', '18.9.1966'),
-	(8, 'Jacqueline', 'Badran', '1.5.1972'),
-	(9, 'Cedric', 'Wehrmuth', '12.12.1999'),
-	(10, 'Barack', 'Obama', '18.5.1977')
+	(nextval('person_id_seq'), 'Hansi', 'Hinterseher', '1.1.1900'),
+	(nextval('person_id_seq'), 'Helene', 'Fischer', '22.3.1991'),
+	(nextval('person_id_seq'), 'Vujo', 'Gavric', '12.1.2005'),
+	(nextval('person_id_seq'), 'Mike', 'Shiva', '13.12.1950'),
+	(nextval('person_id_seq'), 'Monika', 'Fasnacht', '1.2.1939'),
+	(nextval('person_id_seq'), 'DJ', 'Bobo', '12.8.1977'),
+	(nextval('person_id_seq'), 'Melanie', 'Winniger', '18.9.1966'),
+	(nextval('person_id_seq'), 'Jacqueline', 'Badran', '1.5.1972'),
+	(nextval('person_id_seq'), 'Cedric', 'Wehrmuth', '12.12.1999'),
+	(nextval('person_id_seq'), 'Barack', 'Obama', '18.5.1977')
 ;
 
 INSERT INTO Mitarbeiter VALUES

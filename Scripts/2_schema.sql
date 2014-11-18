@@ -6,6 +6,8 @@
  * Tabellen erzeugen
  */
 
+CREATE TYPE herkunft AS ENUM ('Schweiz', 'Afrika', 'Spanien');
+ 
 CREATE TABLE Gestell (
 	Id INTEGER,
 	Position VARCHAR(20) NOT NULL UNIQUE,
@@ -15,7 +17,9 @@ CREATE TABLE Gestell (
 CREATE TABLE Produkt (
 	Id INTEGER,
 	Name VARCHAR(30) NOT NULL,
-	Beschreibung VARCHAR(400)
+	Beschreibung VARCHAR(400),
+	Land herkunft,
+	Lokal BOOLEAN
 );
 
 CREATE TABLE Artikel (
@@ -58,3 +62,6 @@ CREATE TABLE ProduktBestellung (
 	BestellId INTEGER NOT NULL,
 	ProduktId INTEGER NOT NULL
 ); 
+
+CREATE SEQUENCE person_id_seq START 1;
+
