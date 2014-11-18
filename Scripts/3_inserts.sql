@@ -23,6 +23,12 @@ INSERT INTO Produkt VALUES
 	(7, 'Kirsche', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true)
 ;
 
+BEGIN;
+INSERT INTO Produkt VALUES
+	(8, 'Nuss', 'Die Gute alte Nuss', 'Italien', true)
+;
+ROLLBACK;
+
 INSERT INTO Person VALUES
 	(nextval('person_id_seq'), 'Hansi', 'Hinterseher', '1.1.1900'),
 	(nextval('person_id_seq'), 'Helene', 'Fischer', '22.3.1991'),
