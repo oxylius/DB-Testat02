@@ -40,13 +40,12 @@ CREATE DATABASE :database WITH OWNER :user ENCODING 'UTF8';
 -- create schema
 \ir 2_schema.sql
 
-
--- create primary keys, constraints, indexes
-\ir 4_constraints.sql
 -- insert data in slo-mo or use COPY for speedup
 --\ir 3_inserts.sql
 \ir 3_inserts.sql
 
+-- create primary keys, constraints, indexes
+\ir 4_constraints.sql
 
 \echo
 \prompt 'Execute Queries (\\q or Ctrl-C to abort)?' promptvar
@@ -60,4 +59,11 @@ CREATE DATABASE :database WITH OWNER :user ENCODING 'UTF8';
 \set ECHO queries
 -- query the database
 \ir 5_queries.sql
+
+\echo
+\prompt 'Execute CTE, Window Functions and Views (\\q or Ctrl-C to abort)?' promptvar
+:promptvar
+
+-- query the database
+\ir 6_CTE_WF_Views.sql
 

@@ -70,3 +70,37 @@ SELECT g.Position, a.ArtikelNr, p.Name, a.EinlagerungsDatum
 	WHERE g.Position IN('A1', 'A2', 'A3')
 ;
 	
+/*
+	Testat 3, A3.1:
+	Die Abfrage zählt für jedes Produkt, wie oft es
+	bereits bestellt wurde. 
+*/
+SELECT pb.ProduktId, (
+	SELECT p.Name 
+		FROM Produkt p 
+		WHERE p.Id = pb.ProduktId
+	), SUM(pb.menge)
+	FROM ProduktBestellung pb
+	GROUP BY pb.ProduktId
+;
+/* ... und als CTE ... */
+WITH alleProduktBestellungen AS (
+	SELECT pb.ProduktId AS Id, SUM(pb.Menge) AS Summe 
+		FROM ProduktBestellung pb
+		GROUP BY pb.ProduktId
+)
+SELECT p.Name, pb.Summe FROM Produkt p 
+	INNER JOIN alleProduktBestellungen pb  
+	ON p.Id = pb.Id
+;
+/*
+WITH alleAbteilungen AS (
+	SELECT abtnr AS "abtnur", COUNT(persnr) AS "anzpers", AVG(salaer) AS "salaer" FROM angestellter
+		GROUP BY abtnr
+) 
+SELECT abtnur, anzpers, salaer FROM alleAbteilungen
+	WHERE salaer = (
+		SELECT MIN(salaer) FROM alleAbteilungen
+	)
+;
+*/
