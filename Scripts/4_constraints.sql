@@ -39,7 +39,9 @@ ADD CONSTRAINT fk_ArtikelGestellId
 ADD CONSTRAINT fk_ArtikelEinlagerung
 	FOREIGN KEY (EinlagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer),
 ADD CONSTRAINT fk_ArtikelAuslagerung
-	FOREIGN KEY (AuslagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer)
+	FOREIGN KEY (AuslagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer),
+ADD CONSTRAINT c_Preis
+	CHECK(Preis > 0)
 ;
 
 ALTER TABLE Bestellung 
@@ -55,5 +57,7 @@ ADD CONSTRAINT pk_ProduktBestellung
 ADD CONSTRAINT fk_ProduktBestellungBestellung
 	FOREIGN KEY (BestellId) REFERENCES Bestellung (Bestellnummer),
 ADD CONSTRAINT fk_ProduktbestellungProdukt
-	FOREIGN KEY (ProduktId) REFERENCES Produkt (Id)
+	FOREIGN KEY (ProduktId) REFERENCES Produkt (Id),
+ADD CONSTRAINT c_Menge
+	CHECK(Menge > 0)
 ;
