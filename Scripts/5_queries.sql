@@ -69,7 +69,3 @@ SELECT g.Position, a.ArtikelNr, p.Name, a.EinlagerungsDatum
 		ON p.Id = a.ProduktId
 	WHERE g.Position IN('A1', 'A2', 'A3')
 ;
-
-/* Window-Function Query*/
-SELECT pg.BestellId AS "Bestellung", p.Name AS "Produkt", Menge AS "Menge" , SUM(Menge) OVER (PARTITION BY BestellId) AS "Menge der Bestellung" FROM ProduktBestellung AS pg INNER JOIN Produkt p ON p.Id = pg.ProduktID
-;

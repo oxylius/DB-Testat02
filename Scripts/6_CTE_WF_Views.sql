@@ -25,6 +25,14 @@ SELECT p.Name, pb.Summe FROM Produkt p
 	INNER JOIN alleProduktBestellungen pb  
 	ON p.Id = pb.Id
 ;
+/*
+	Testat 3, A3.2:
+	Window-Function Query welche alle Bestellpositionen 
+	durchgeht und zusätzlich die Gesamt-Menge der 
+	Bestellung angibt	
+*/
+SELECT pg.BestellId AS "Bestellung", p.Name AS "Produkt", Menge AS "Menge" , SUM(Menge) OVER (PARTITION BY BestellId) AS "Menge der Bestellung" FROM ProduktBestellung AS pg INNER JOIN Produkt p ON p.Id = pg.ProduktID
+;
 
 /*
 	Testat 3, A4.1
