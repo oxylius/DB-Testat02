@@ -6,10 +6,11 @@
  * Tabellen erzeugen
  */
 
-CREATE TYPE herkunft AS ENUM ('Schweiz', 'Afrika', 'Spanien');
+CREATE TYPE herkunft AS ENUM 
+('Schweiz', 'Afrika', 'Spanien');
  
 CREATE TABLE Gestell (
-	Id INTEGER,
+	Id SERIAL,
 	Position VARCHAR(20) NOT NULL UNIQUE,
 	Freie_Fläche INT NOT NULL
 );

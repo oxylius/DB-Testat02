@@ -2,15 +2,15 @@
  *			Noah Hendrikx	nhendrikx@hsr.ch
  */
  
-INSERT INTO Gestell VALUES
-	(1, 'A1', 14),
-	(2, 'A2', 45),
-	(3, 'A3', 12),
-	(4, 'B1', 1),
-	(5, 'B2', 22),
-	(6, 'B3', 33),
-	(7, 'C1', 1),
-	(8, 'C2', 31)	
+INSERT INTO Gestell (Position, Freie_Flaeche) VALUES
+	('A1', 14),
+	('A2', 45),
+	('A3', 12),
+	('B1', 1),
+	('B2', 22),
+	('B3', 33),
+	('C1', 1),
+	('C2', 31)	
 ;
 
 INSERT INTO Produkt VALUES
