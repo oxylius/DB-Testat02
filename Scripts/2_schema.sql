@@ -12,7 +12,7 @@ CREATE TYPE herkunft AS ENUM
 CREATE TABLE Gestell (
 	Id SERIAL,
 	Position VARCHAR(20) NOT NULL UNIQUE,
-	Freie_Fläche INT NOT NULL
+	Freie_Flaeche INT NOT NULL
 );
 
 CREATE TABLE Produkt (

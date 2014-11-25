@@ -22,6 +22,10 @@ INSERT INTO Produkt VALUES
 	(6, 'Mango', 'Exotische Frucht, produziert und geernet von Armen Menschen', 'Afrika', false),
 	(7, 'Kirsche', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true)
 ;
+\echo
+\echo A1.3 Testing
+\echo Test Insert eines ungültigen Wertes. Rollback sollte durchgeführt werden.
+\echo
 
 BEGIN;
 INSERT INTO Produkt VALUES
@@ -30,19 +34,19 @@ INSERT INTO Produkt VALUES
 ROLLBACK;
 
 INSERT INTO Person VALUES
-	(nextval('person_id_seq'), 'Hansi', 'Hinterseher', '1.1.1900'),
-	(nextval('person_id_seq'), 'Helene', 'Fischer', '22.3.1991'),
-	(nextval('person_id_seq'), 'Vujo', 'Gavric', '12.1.2005'),
-	(nextval('person_id_seq'), 'Mike', 'Shiva', '13.12.1950'),
-	(nextval('person_id_seq'), 'Monika', 'Fasnacht', '1.2.1939'),
-	(nextval('person_id_seq'), 'DJ', 'Bobo', '12.8.1977'),
-	(nextval('person_id_seq'), 'Melanie', 'Winniger', '18.9.1966'),
-	(nextval('person_id_seq'), 'Jacqueline', 'Badran', '1.5.1972'),
-	(nextval('person_id_seq'), 'Cedric', 'Wehrmuth', '12.12.1999'),
-	(nextval('person_id_seq'), 'Barack', 'Obama', '18.5.1977')
+	(nextval('person_id_seq'), 'Hansi', 'Hinterseher', to_date('1900-01-01', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Helene', 'Fischer', to_date('1991-03-22', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Vujo', 'Gavric', to_date('2005-01-12', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'MIke', 'Shiva', to_date('1950-12-13', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Monika', 'Fasnacht', to_date('1939-02-01', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'DJ', 'Bobo', to_date('1977-08-12', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Melanie', 'Winniger', to_date('1966-09-18', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Jacqueline', 'Badran', to_date('1972-05-01', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Cedric', 'Wehrmuth', to_date('1999-12-12', 'YYYY-MM-DD')),
+	(nextval('person_id_seq'), 'Barack', 'Obama', to_date('1977-05-18', 'YYYY-MM-DD'))
 ;
 
-INSERT INTO Mitarbeiter VALUES
+INSERT INTO MItarbeiter VALUES
 	(1,1),
 	(2,2),
 	(3,3),
@@ -86,15 +90,14 @@ INSERT INTO ProduktBestellung VALUES
 ;
 
 INSERT INTO Artikel VALUES 
-	(1, 13.55, '2014-11-01 11:15:22', 3, 1, 1, 2, 1),
-	(2, 11.55, '2014-11-02 10:15:22', 32, 1, 1, 1, 2),
-	(3, 3.50, '2014-11-03 09:15:09', 4, 2, 4, 3, 4),
-	(4, 1.35, '2014-11-05 07:15:22', 7, 3, 5, 7, 7),
-	(5, 31.50, '2014-11-06 16:15:18', 12, 4, 5, 1, 7),
-	(6, 1.10, '2014-11-06 19:15:12', 31, 4, 5, 2, 3),
-	(7, 12.50, '2014-11-07 22:15:00', 13, 5, 2, 2, 6),
-	(8, 12.50, '2014-11-07 22:15:00', 3, 6, 2, 3, 2),
-	(9, 12.50, '2014-11-07 22:15:00', 4, 7, 4, 5, 3),
-	(10, 12.50, '2014-11-07 22:15:00', 7, 7, 5, 2, 4),
-	(11, -5.00, '2014-10-07 22:15:00', 7, 4, 5, 2, 4)
+	(1, 13.55, to_timestamp('2014-11-01 11:15:22', 'YYYY-MM-DD HH24:MI:SS'), 3, 1, 1, 2, 1),
+	(2, 11.55, to_timestamp('2014-11-02 10:15:22', 'YYYY-MM-DD HH24:MI:SS'), 32, 1, 1, 1, 2),
+	(3, 3.50, to_timestamp('2014-11-03 09:15:09', 'YYYY-MM-DD HH24:MI:SS'), 4, 2, 4, 3, 4),
+	(4, 1.35, to_timestamp('2014-11-05 07:15:22', 'YYYY-MM-DD HH24:MI:SS'), 7, 3, 5, 7, 7),
+	(5, 31.50, to_timestamp('2014-11-06 16:15:18', 'YYYY-MM-DD HH24:MI:SS'), 12, 4, 5, 1, 7),
+	(6, 1.10, to_timestamp('2014-11-06 19:15:12', 'YYYY-MM-DD HH24:MI:SS'), 31, 4, 5, 2, 3),
+	(7, 12.50, to_timestamp('2014-11-07 22:15:00', 'YYYY-MM-DD HH24:MI:SS'), 13, 5, 2, 2, 6),
+	(8, 12.50, to_timestamp('2014-11-07 22:15:00', 'YYYY-MM-DD HH24:MI:SS'), 3, 6, 2, 3, 2),
+	(9, 12.50, to_timestamp('2014-11-07 22:15:00', 'YYYY-MM-DD HH24:MI:SS'), 4, 7, 4, 5, 3),
+	(10, 12.50, to_timestamp('2014-11-07 22:15:00', 'YYYY-MM-DD HH24:MI:SS'), 7, 7, 5, 2, 4)
 ;

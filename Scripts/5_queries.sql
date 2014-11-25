@@ -69,3 +69,12 @@ SELECT g.Position, a.ArtikelNr, p.Name, a.EinlagerungsDatum
 		ON p.Id = a.ProduktId
 	WHERE g.Position IN('A1', 'A2', 'A3')
 ;
+
+/* Aufgabe 2.2
+	Constraint verletzender Insert Testen.
+*/
+BEGIN;
+INSERT INTO Artikel VALUES
+	(11, -5.00, to_timestamp('2014-10-07 22:15:00', 'YYYY-MM-DD HH24:MI:SS'), 7, 4, 5, 2, 4)
+;
+ROLLBACK;

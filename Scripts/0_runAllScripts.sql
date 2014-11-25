@@ -32,7 +32,7 @@ CREATE DATABASE :database WITH OWNER :user ENCODING 'UTF8';
 
 -- specify encoding to match your files encoding, usually UTF8
 -- valid values are: 'UTF8', 'LATIN1', 'WIN1252'
-\encoding 'UTF8'
+\encoding 'auto'
 
 -- create extensions
 \ir 1_extensions.sql
