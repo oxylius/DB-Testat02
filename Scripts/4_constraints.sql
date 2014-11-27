@@ -40,6 +40,10 @@ ADD CONSTRAINT fk_ArtikelEinlagerung
 	FOREIGN KEY (EinlagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer),
 ADD CONSTRAINT fk_ArtikelAuslagerung
 	FOREIGN KEY (AuslagerungsmitarbeiterId) REFERENCES Mitarbeiter(Mitarbeiternummer),
+/* 
+	Testat 3, A2.1 :
+	Der Constraint verhindert dass ein Artikel kostenlos ist
+*/
 ADD CONSTRAINT c_Preis
 	CHECK(Preis > 0)
 ;
@@ -58,6 +62,10 @@ ADD CONSTRAINT fk_ProduktBestellungBestellung
 	FOREIGN KEY (BestellId) REFERENCES Bestellung (Bestellnummer),
 ADD CONSTRAINT fk_ProduktbestellungProdukt
 	FOREIGN KEY (ProduktId) REFERENCES Produkt (Id),
+/* 
+	Testat 3, A2.1 :
+	Der Constraint verhindert dass eine Bestellposition eine Nullmenge hat
+*/
 ADD CONSTRAINT c_Menge
 	CHECK(Menge > 0)
 ;

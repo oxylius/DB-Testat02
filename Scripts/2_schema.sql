@@ -5,11 +5,18 @@
 /*
  * Tabellen erzeugen
  */
-
+/* 
+	Testat 3, A1.2 :
+	ENUM
+*/
 CREATE TYPE herkunft AS ENUM 
 ('Schweiz', 'Afrika', 'Spanien');
  
 CREATE TABLE Gestell (
+/* 
+	Testat 3, A1.1 :
+	Typ Serial verwendet
+*/
 	Id SERIAL,
 	Position VARCHAR(20) NOT NULL UNIQUE,
 	Freie_Flaeche INT NOT NULL
@@ -20,6 +27,10 @@ CREATE TABLE Produkt (
 	Name VARCHAR(30) NOT NULL,
 	Beschreibung VARCHAR(400),
 	Land herkunft,
+/* 
+	Testat 3, A1.2 :
+	BOOLEAN
+*/
 	Lokal BOOLEAN
 );
 
@@ -63,6 +74,9 @@ CREATE TABLE ProduktBestellung (
 	BestellId INTEGER NOT NULL,
 	ProduktId INTEGER NOT NULL
 ); 
-
+/* 
+	Testat 3, A1.1 :
+	Typ Sequence
+*/
 CREATE SEQUENCE person_id_seq START 1;
 

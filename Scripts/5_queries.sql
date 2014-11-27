@@ -70,7 +70,8 @@ SELECT g.Position, a.ArtikelNr, p.Name, a.EinlagerungsDatum
 	WHERE g.Position IN('A1', 'A2', 'A3')
 ;
 
-/* Aufgabe 2.2
+/*
+	Testat 3, A2.2 :
 	Constraint verletzender Insert Testen.
 */
 BEGIN;

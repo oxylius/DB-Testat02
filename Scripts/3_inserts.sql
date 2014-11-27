@@ -23,7 +23,7 @@ INSERT INTO Produkt VALUES
 	(7, 'Kirsche', 'Eine süsse oder saure Frucht von IHREN Schweizer Bauern', 'Schweiz', true)
 ;
 \echo
-\echo A1.3 Testing
+\echo Testat 3, A1.3 Testing
 \echo Test Insert eines ungültigen Wertes. Rollback sollte durchgeführt werden.
 \echo
 
