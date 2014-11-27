@@ -54,8 +54,10 @@ SELECT p.Name, pb.Menge, b.Datum, pe.Vorname, pe.Nachname
 );
 SELECT * FROM BaracksBestellungen;
 
+
 /*
 	Testat 3, A4.2
+	Lösung mit Instead of trigger
 */
 CREATE VIEW person_view AS ( 
 	SELECT Nachname, Vorname, Geburtsdatum
@@ -70,3 +72,12 @@ CREATE RULE update_person_view AS ON UPDATE TO person_view
 UPDATE person_view 
 	SET Nachname = 'Maurer', Vorname = 'Ueli' 
 	WHERE Nachname= 'Obama';
+/*
+... oder als Updateable VIEW
+*/
+CREATE VIEW person_name AS (
+	SELECT nachname, vorname FROM person
+);
+UPDATE person_name 
+	SET nachname = 'Test'
+	WHERE nachname = 'Bobo';
